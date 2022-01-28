@@ -1,0 +1,30 @@
+version: 2
+sources: 
+  - name: S3
+    description: A snowflake database
+    database: fivetran_database
+    tables:
+      - name: timhortons_new
+        description: main table
+        loaded_at_field: timestamp
+        freshness: 
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 48, period: hour}
+  - name: gh
+    description: A snowflake database
+    database: fivetran_database
+    tables:
+      - name: talbot_255
+        description: talbot branch 
+        loaded_at_field: date
+      - name: maidston_1903
+        description: maidstone branch 
+        loaded_at_field: date
+      - name: erie_185
+        description: erie_185 branch 
+        loaded_at_field: date 
+      - name: erie_250
+        description: erie_250 branch 
+        loaded_at_field: date   
+
+        
